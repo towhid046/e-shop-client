@@ -4,6 +4,7 @@ import SectionHeading from "./../../components/shared/SectionHeading/SectionHead
 import Product from "../../components/unique/Product/Product";
 
 import React from "react";
+import LoadingSpinner from "../../components/shared/LoadingSpinner/LoadingSpinner";
 const ProductsPage: React.FC = () => {
   const {
     data: products,
@@ -12,6 +13,10 @@ const ProductsPage: React.FC = () => {
     error,
   } = useToGetPublicData({ queryKeyName: "products", url: "/products" });
   useScrollToTop();
+  
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
   return (
     <section className="container mx-auto mb-12">
       <SectionHeading title="Products" description="Discover Your Medicine" />

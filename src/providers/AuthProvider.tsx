@@ -1,5 +1,14 @@
 import React, { createContext, useEffect, useState, ReactNode } from "react";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
 
+import { auth, googleProvider } from "../firebase/firebase";
 // Define the user type or interface if you have a specific structure
 interface User {
   id: string;
@@ -12,8 +21,10 @@ export interface UserContextType {
   user: User | null;
   loading: boolean;
   createNewUser: (email: string, password: string) => void;
-  logOutUser: () => void;
   logInUser: (email: string, password: string) => void;
+  updateUserProfile: (displayName: string, photoURL: string) => void;
+  logInWithGoogle: () => void;
+  logOutUser: () => Promise<void>;
 }
 
 export const UserContext = createContext<UserContextType | null>(null);
@@ -26,23 +37,37 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const createNewUser = (email:string, password:string) => {};
-  const logInUser = (email:string, password:string) => {};
+  const createNewUser = (email: string, password: string) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const logInUser = (email: string, password: string) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logInWithGoogle = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const updateUserProfile = (displayName: string, photoURL: string) => {
+    setLoading(true);
+    return updateProfile(auth?.currentUser, { displayName, photoURL });
+  };
 
   // Logout User:
-  const logOutUser = (): void => {
-    setUser(null);
-    localStorage.removeItem("user");
+  const logOutUser = (): Promise<void> => {
+    return signOut(auth);
   };
 
   // Track the current user:
   useEffect(() => {
-    const usr = localStorage.getItem("user")
-      ? (JSON.parse(localStorage.getItem("user") as string) as User)
-      : null;
-
-    setUser(usr);
-    setLoading(false);
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+    return () => unSubscribe();
   }, []);
 
   const userInfo: UserContextType = {
@@ -51,6 +76,8 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     logOutUser,
     createNewUser,
     logInUser,
+    logInWithGoogle,
+    updateUserProfile,
   };
 
   return (

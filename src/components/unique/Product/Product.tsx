@@ -1,13 +1,18 @@
+interface ProductProps {
+  _id: string;
+  name: string;
+  description: string;
+  categories: string;
+  price: string;
+  image: string;
+}
+
 const productImage = `https://images.pexels.com/photos/208512/pexels-photo-208512.jpeg?auto=compress&cs=tinysrgb&w=600`;
 import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import Button from "../../shared/Button/Button";
 
-// interface ProductProps {
-
-// }
-
-const Product = ({ product }) => {
+const Product = ({ product }: ProductProps) => {
   const { name, description, categories, price, _id } = product;
   return (
     <div className="border rounded">

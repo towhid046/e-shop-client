@@ -67,17 +67,17 @@ const Navbar: React.FC = () => {
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-circle avatar"
+                  className="border-2 rounded-full hover:border-gray-300 transition duration-300"
                 >
-                  <div className="md:w-10 w-9 rounded-full">
-                    <img alt="User Img" src={user?.img} />
+                  <div className="md:w-9 w-8 md:h-9 h-8 rounded-full">
+                    <img alt="User Img" src={user?.photoURL} />
                   </div>
                 </div>
                 <ul
                   tabIndex={0}
                   className="menu menu-sm dropdown-content bg-base-100 rounded z-[1] mt-4 w-52 p-2 shadow"
                 >
-                  <li className="text-base p-2">Hi, {user?.name}</li>
+                  <li className="text-base p-2">Hi, {user?.displayName}</li>
                   <li>
                     <button>Profile</button>
                   </li>

@@ -6,6 +6,7 @@ import useScrollToTop from "../../hooks/useScrollToTop";
 import useToGetImgUrl from "../../hooks/useToGetImgUrl";
 import { useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
+import useAuth from "../../hooks/useAuth";
 
 interface OnsubmitProps {
   name: string;
@@ -24,15 +25,20 @@ function RegistrationPage() {
   } = useForm();
   const axiosInstance = useAxios();
   const navigate = useNavigate();
+  const { createNewUser, updateUserProfile } = useAuth();
   const getImageUrl = useToGetImgUrl();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isShow, setIsShow] = useState<boolean>(false);
-
   const onSubmit = async (data: OnsubmitProps): Promise<void> => {
     setIsLoading(true);
     try {
-      data.img = await getImageUrl(data.img);
-      console.log(data);
+      const image = await getImageUrl(data.img);
+      await createNewUser(data.email, data.password);
+      await updateUserProfile(data.name, image);
+      toast.success("Register Success!!", {
+        position: "top-center",
+      });
+      navigate("/");
     } catch (error) {
       console.error(error);
     } finally {
@@ -135,12 +141,12 @@ function RegistrationPage() {
         </form>
 
         <div className="mt-4 text-center text-gray-600">
-          Already registered?
+          Already registered? Please
           <Link
             to="/login"
-            className="text-gray-800 hover:text-gray-600 underline ml-1"
+            className="text-secondary-color italic  hover:text-primary-color underline ml-1"
           >
-            Please Login
+            Login
           </Link>
         </div>
       </div>
