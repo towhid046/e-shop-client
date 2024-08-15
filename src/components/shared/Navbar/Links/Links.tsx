@@ -5,7 +5,7 @@ const navLinks = [
 ];
 const Links = () => {
   return (
-    <ul className="md:flex hidden items-center lg:gap-8 gap-5">
+    <ul className="md:flex hidden items-center lg:gap-3 gap-2">
       {navLinks.map((link) => (
         <NavLink key={link.path} to={link.path}>
           <li
