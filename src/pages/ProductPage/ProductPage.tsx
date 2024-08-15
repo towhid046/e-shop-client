@@ -23,7 +23,8 @@ const ProductsPage: React.FC = () => {
   const [category, setCategory] = useState<string>("");
   const [priceRange, setPriceRange] = useState<string>("");
 
-  const [sortOrder, setSortOrder] = useState<string>("");
+  const [sortOrderPrice, setSortOrderPrice] = useState<string>("");
+  const [sortOrderDate, setSortOrderDate] = useState<string>("");
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -31,7 +32,7 @@ const ProductsPage: React.FC = () => {
       const maxPrice = priceRange ? Number(priceRange.split("-")[1]) : "";
       try {
         const res = await axiosInstance.get(
-          `/products?currentPage=${currentPage}&perPageView=${perPageView}&brand=${brand}&category=${category}&minPrice=${minPrice}&maxPrice=${maxPrice}&sortOrder=${sortOrder}`
+          `/products?currentPage=${currentPage}&perPageView=${perPageView}&brand=${brand}&category=${category}&minPrice=${minPrice}&maxPrice=${maxPrice}&sortOrderPrice=${sortOrderPrice}&sortOrderDate=${sortOrderDate}`
         );
         setProducts(res.data);
       } catch (error) {
@@ -45,7 +46,7 @@ const ProductsPage: React.FC = () => {
       behavior: "smooth",
     });
     loadProducts();
-  }, [currentPage, brand, category, priceRange, sortOrder]);
+  }, [currentPage, brand, category, priceRange, sortOrderPrice, sortOrderDate]);
 
   useEffect(() => {
     const loadProductCount = async () => {
@@ -87,7 +88,10 @@ const ProductsPage: React.FC = () => {
           />
         </div>
         <div className="flex-1">
-          <SortingComponent setSortOrder={setSortOrder} />
+          <SortingComponent
+            setSortOrderPrice={setSortOrderPrice}
+            setSortOrderDate={setSortOrderDate}
+          />
         </div>
       </div>
       {!products?.length && (

@@ -8,7 +8,7 @@ const productImage = `https://images.pexels.com/photos/208512/pexels-photo-20851
 
 const ProductDetailsPage: React.FC = () => {
   useScrollToTop();
-  const { name, description, categories, price } = useLoaderData();
+  const { name, description, categories, price,category, created_at, brand } = useLoaderData();
 
   return (
     <div className="px-4 mb-12">
@@ -36,6 +36,9 @@ const ProductDetailsPage: React.FC = () => {
               <h2 className="text-xl md:text-2xl font-bold text-primary-color">
                 Price: ${price}
               </h2>
+              <p className="text-gray-500">Category: {category}</p>
+              <p className="text-gray-500">Brand: {brand}</p>
+              <p className="text-gray-500">Date: {created_at.split("T")[0]}</p>
               <p className="text-gray-600">{description}</p>
               {/* Quantity Controls */}
               <div className="flex items-center gap-3">

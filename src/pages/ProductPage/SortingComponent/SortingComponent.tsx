@@ -1,8 +1,12 @@
 import { BiSort } from "react-icons/bi";
 interface SortingComponentProps {
-  setSortOrder: React.Dispatch<React.SetStateAction<string>>;
+  setSortOrderPrice: React.Dispatch<React.SetStateAction<string>>;
+  setSortOrderDate: React.Dispatch<React.SetStateAction<string>>;
 }
-const SortingComponent = ({ setSortOrder }: SortingComponentProps) => {
+const SortingComponent = ({
+  setSortOrderPrice,
+  setSortOrderDate,
+}: SortingComponentProps) => {
   return (
     <div className="p-4 border rounded mx-4 bg-white mb-5">
       <div className="flex items-center gap-1">
@@ -13,12 +17,12 @@ const SortingComponent = ({ setSortOrder }: SortingComponentProps) => {
         {/* Select Brand Filter */}
         <div className="flex-1 w-full">
           <label className="block text-md font-semibold text-gray-400 mb-2">
-            Sort By Price
+            By Price
           </label>
           <div className="relative">
             <select
               defaultValue={""}
-              onChange={(e) => setSortOrder(e.target.value)}
+              onChange={(e) => setSortOrderPrice(e.target.value)}
               className="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-primary-color focus:ring focus:ring-primary-color focus:ring-opacity-50"
             >
               <option className="text-gray-500" value={""}>
@@ -46,23 +50,23 @@ const SortingComponent = ({ setSortOrder }: SortingComponentProps) => {
         {/* Select Brand Filter */}
         <div className="flex-1 w-full">
           <label className="block text-md font-semibold text-gray-400 mb-2">
-            Brand Name
+            By Date
           </label>
           <div className="relative">
             <select
               defaultValue={""}
-              //   onChange={(e) => setCategory(e.target.value)}
+              onChange={(e) => setSortOrderDate(e.target.value)}
               className="block appearance-none w-full bg-white border border-gray-300 text-gray-700 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:border-primary-color focus:ring focus:ring-primary-color focus:ring-opacity-50"
             >
               <option className="text-gray-500" value={""}>
-                All Categories
+                Sort By Date
               </option>
-              {/* {categoryOptions &&
-                categoryOptions.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))} */}
+              <option className="text-gray-500" value={"newest-first"}>
+                Newest First
+              </option>
+              <option className="text-gray-500" value={"oldest-first"}>
+                Oldest First
+              </option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg

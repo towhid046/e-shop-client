@@ -4,7 +4,7 @@ import Button from "../../shared/Button/Button";
 import { Link } from "react-router-dom";
 const Hero: React.FC = () => {
   return (
-    <section className="flex flex-col md:flex-row max-w-5xl mx-auto min-h-[85vh] px-4 items-center gap-5 py-8 ">
+    <section className="flex flex-col md:flex-row max-w-5xl mx-auto min-h-screen px-4 items-center gap-5 py-8 ">
       <div className="flex-1 md:text-left text-center">
         <div className="max-w-xl">
           <h2 className="lg:text-4xl text-3xl font-bold">
