@@ -1,32 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useScrollToTop from "../../hooks/useScrollToTop";
-import useToGetPublicData from "../../hooks/useToGetPublicData";
 import SectionHeading from "./../../components/shared/SectionHeading/SectionHeading";
 import Product from "../../components/unique/Product/Product";
 import LoadingSpinner from "../../components/shared/LoadingSpinner/LoadingSpinner";
 import Button from "./../../components/shared/Button/Button";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import useAxios from "../../hooks/useAxios";
 const ProductsPage: React.FC = () => {
-  const {
-    data: products,
-    isLoading,
-    isError,
-    error,
-  } = useToGetPublicData({ queryKeyName: "products", url: "/products" });
   useScrollToTop();
+  const axiosInstance = useAxios();
+  const [products, setProducts] = useState<object[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const [totalProducts, setTotalProducts] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const perPageView = 2;
+  const totalPages = Math.ceil(totalProducts / perPageView);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        const res = await axiosInstance.get(
+          `/products?currentPage=${currentPage}&perPageView=${perPageView}`
+        );
+        setProducts(res.data);
+      } catch (error) {
+        console.error(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    loadProducts();
+  }, [currentPage]);
+
+  useEffect(() => {
+    const loadProductCount = async () => {
+      const { data } = await axiosInstance.get("/products-count");
+      setTotalProducts(data.productCount);
+    };
+    loadProductCount();
+  }, []);
+
+  const prevButtonHandler = (): void => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const nextButtonHandler = (): void => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   if (isLoading) {
     return <LoadingSpinner />;
   }
-  if (isError) {
+
+  if (!products?.length) {
     return (
-      <h2 className="text-xl font-semibold text-gray-400 py-12 text-center">
-        {error}
-      </h2>
+      <div className="text-2xl font-semibold text-gray-400 min-h-[80vh] flex justify-center items-center">
+        Products Not Found
+      </div>
     );
-  }
-  if(!products?.length){
-    return <div className="text-2xl font-semibold text-gray-400 min-h-[80vh] flex justify-center items-center">Products Not Found</div>
   }
 
   return (
@@ -41,12 +80,20 @@ const ProductsPage: React.FC = () => {
 
       <div className="flex justify-end px-4 pt-8">
         <div className="flex items-center gap-4">
-          <p className="font-semibold">Page 1 of 8</p>
+          <p className="font-semibold">
+            Page {currentPage} of {totalPages}
+          </p>
           <div className="flex items-center gap-2">
-            <Button>
+            <Button
+              clickHandler={prevButtonHandler}
+              isDisabled={currentPage < 2}
+            >
               <IoIosArrowBack className="my-1" />
             </Button>
-            <Button>
+            <Button
+              clickHandler={nextButtonHandler}
+              isDisabled={currentPage >= totalPages}
+            >
               <IoIosArrowForward className="my-1" />
             </Button>
           </div>

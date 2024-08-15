@@ -1,10 +1,12 @@
-interface ProductProps {
+export interface ProductProps {
   _id: string;
   name: string;
   description: string;
-  categories: string;
-  price: string;
   image: string;
+  categories: string;
+  price: number;
+  ratings: number;
+  created_at: string;
 }
 
 const productImage = `https://images.pexels.com/photos/208512/pexels-photo-208512.jpeg?auto=compress&cs=tinysrgb&w=600`;
