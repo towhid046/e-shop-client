@@ -25,6 +25,10 @@ export interface UserContextType {
   updateUserProfile: (displayName: string, photoURL: string) => void;
   logInWithGoogle: () => void;
   logOutUser: () => Promise<void>;
+  handleAddToCart: (id: string) => void;
+  productIds: string[];
+  isToggle;
+  setIsToggle;
 }
 
 export const UserContext = createContext<UserContextType | null>(null);
@@ -36,6 +40,8 @@ interface AuthProviderProps {
 const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [productIds, setProductIds] = useState<string[]>([]);
+  const [isToggle, setIsToggle] = useState<boolean>(false);
 
   const createNewUser = (email: string, password: string) => {
     setLoading(true);
@@ -61,6 +67,17 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     return signOut(auth);
   };
 
+  // handle add item to cart:
+  const handleAddToCart = (id: string) => {
+    const prevIds = localStorage.getItem("productsId")
+      ? JSON.parse(localStorage.getItem("productsId"))
+      : [];
+    if (!prevIds.includes(id)) {
+      localStorage.setItem("productsId", JSON.stringify([...prevIds, id]));
+      setProductIds([...prevIds, id]);
+    }
+  };
+
   // Track the current user:
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -78,6 +95,11 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     logInUser,
     logInWithGoogle,
     updateUserProfile,
+    handleAddToCart,
+    
+    productIds,
+    setIsToggle,
+    isToggle,
   };
 
   return (

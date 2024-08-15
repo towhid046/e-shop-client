@@ -13,8 +13,13 @@ const productImage = `https://images.pexels.com/photos/208512/pexels-photo-20851
 import { Link } from "react-router-dom";
 import { IoCartOutline } from "react-icons/io5";
 import Button from "../../shared/Button/Button";
+import useAuth from "./../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
 
 const Product = ({ product }: ProductProps) => {
+  const { handleAddToCart, productIds, setIsToggle } = useAuth();
+  const { carts } = useCart();
+
   const {
     name,
     description,
@@ -25,6 +30,7 @@ const Product = ({ product }: ProductProps) => {
     created_at,
     brand,
   } = product;
+
   return (
     <div className="border rounded">
       <figure className="overflow-hidden rounded">
@@ -49,7 +55,7 @@ const Product = ({ product }: ProductProps) => {
         </h3>
         <p className="text-gray-500">Category: {category}</p>
         <p className="text-gray-500">Brand: {brand}</p>
-        <p className="text-gray-500">Date: {created_at.split('T')[0]}</p>
+        <p className="text-gray-500">Date: {created_at.split("T")[0]}</p>
         <p className="text-gray-500">
           {description?.split("")?.slice(0, 20)?.join("")}...
           <small className="text-primary-color italic cursor-pointer">
@@ -58,9 +64,21 @@ const Product = ({ product }: ProductProps) => {
         </p>
       </Link>
       <div className="p-4">
-        <Button customClass="w-full flex items-center gap-3 justify-center">
-          Add to Cart <IoCartOutline className="text-lg" />{" "}
-        </Button>
+        {productIds.includes(_id) || carts.includes(_id) ? (
+          <button
+            onClick={() => setIsToggle(true)}
+            className="w-full flex px-4 py-2 bg-gray-800 hover:bg-gray-700 transition duration-300 text-white rounded items-center gap-3 justify-center"
+          >
+            View Cart <IoCartOutline className="text-lg" />{" "}
+          </button>
+        ) : (
+          <Button
+            clickHandler={() => handleAddToCart(_id)}
+            customClass="w-full flex items-center gap-3 justify-center"
+          >
+            Add to Cart <IoCartOutline className="text-lg" />{" "}
+          </Button>
+        )}
       </div>
     </div>
   );
