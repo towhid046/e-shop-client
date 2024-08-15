@@ -6,6 +6,7 @@ import LoadingSpinner from "../../components/shared/LoadingSpinner/LoadingSpinne
 import useAxios from "../../hooks/useAxios";
 import PaginationComponent from "./PaginationComponent/PaginationComponent";
 import FilterComponent from "./FilterComponent/FilterComponent";
+import SortingComponent from "./SortingComponent/SortingComponent";
 
 const ProductsPage: React.FC = () => {
   useScrollToTop();
@@ -22,11 +23,15 @@ const ProductsPage: React.FC = () => {
   const [category, setCategory] = useState<string>("");
   const [priceRange, setPriceRange] = useState<string>("");
 
+  const [sortOrder, setSortOrder] = useState<string>("");
+
   useEffect(() => {
     const loadProducts = async () => {
+      const minPrice = priceRange ? Number(priceRange.split("-")[0]) : "";
+      const maxPrice = priceRange ? Number(priceRange.split("-")[1]) : "";
       try {
         const res = await axiosInstance.get(
-          `/products?currentPage=${currentPage}&perPageView=${perPageView}&brand=${brand}&category=${category}`
+          `/products?currentPage=${currentPage}&perPageView=${perPageView}&brand=${brand}&category=${category}&minPrice=${minPrice}&maxPrice=${maxPrice}&sortOrder=${sortOrder}`
         );
         setProducts(res.data);
       } catch (error) {
@@ -40,7 +45,7 @@ const ProductsPage: React.FC = () => {
       behavior: "smooth",
     });
     loadProducts();
-  }, [currentPage, brand, category, priceRange]);
+  }, [currentPage, brand, category, priceRange, sortOrder]);
 
   useEffect(() => {
     const loadProductCount = async () => {
@@ -73,17 +78,24 @@ const ProductsPage: React.FC = () => {
     <section className="container mx-auto pb-12">
       <SectionHeading title="Products" description="Discover Your Medicine" />
 
-      <FilterComponent
-        setBrand={setBrand}
-        setCategory={setCategory}
-        setPriceRange={setPriceRange}
-      />
-      {/* --------------------------- */}
+      <div className="flex flex-col lg:flex-row">
+        <div className="flex-1">
+          <FilterComponent
+            setBrand={setBrand}
+            setCategory={setCategory}
+            setPriceRange={setPriceRange}
+          />
+        </div>
+        <div className="flex-1">
+          <SortingComponent setSortOrder={setSortOrder} />
+        </div>
+      </div>
       {!products?.length && (
         <div className="text-2xl font-semibold text-gray-400 min-h-[60vh] flex justify-center items-center">
           Products Not Found
         </div>
       )}
+
       <div className="grid xl:grid-cols-4 px-4 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {products?.length &&
           products?.map((product) => (
@@ -91,12 +103,14 @@ const ProductsPage: React.FC = () => {
           ))}
       </div>
 
-      <PaginationComponent
-        currentPage={currentPage}
-        totalPages={totalPages}
-        prevButtonHandler={prevButtonHandler}
-        nextButtonHandler={nextButtonHandler}
-      />
+      <div className={`${(brand || category || priceRange) && "hidden"}`}>
+        <PaginationComponent
+          currentPage={currentPage}
+          totalPages={totalPages}
+          prevButtonHandler={prevButtonHandler}
+          nextButtonHandler={nextButtonHandler}
+        />
+      </div>
     </section>
   );
 };
