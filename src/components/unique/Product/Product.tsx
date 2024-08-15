@@ -27,7 +27,7 @@ const Product = ({ product }: ProductProps) => {
           />
         </Link>
       </figure>
-      <div className="space-y-1 p-4">
+      <Link to={`/product-details/${_id}`} className="inline-block space-y-1 p-4">
         <h2 className="text-xl font-bold text-gray-700">{name}</h2>
         <h4 className="text-gray-600 text-md">
           {categories?.primaryCategory?.name}
@@ -41,7 +41,7 @@ const Product = ({ product }: ProductProps) => {
             View more
           </small>
         </p>
-      </div>
+      </Link>
       <div className="p-4">
         <Button customClass="w-full flex items-center gap-3 justify-center">
           Add to Cart <IoCartOutline className="text-lg" />{" "}

@@ -35,7 +35,7 @@ const SearchProduct: React.FC = () => {
 
       {searchText && !products.length && (
         <>
-          <ul className="space-y-2 bg-base-100 p-5 rounded absolute w-full top-[110%] py-12">
+          <ul className="space-y-2 bg-base-100 p-5 rounded absolute w-full top-[110%] py-12 shadow">
             {isLoading ? (
               <div className="text-center">
                 <span className="loading loading-spinner loading-sm"></span>

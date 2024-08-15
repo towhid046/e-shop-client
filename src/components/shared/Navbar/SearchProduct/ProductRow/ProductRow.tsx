@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { ProductProps } from "../../../../unique/Product/Product";
 interface ProductRowProps {
   product: ProductProps;
-  setSearchText: React.Dispatch<React.SetStateAction<string | null>>;
+  setSearchText: () => void;
 }
 const ProductRow = ({ product, setSearchText }: ProductRowProps) => {
   const { name, _id, image, price } = product;
+
   return (
-    <Link onClick={() => setSearchText(null)} to={`/product-details/${_id}`}>
+    <Link to={`/product-details/${_id}`} onClick={() => setSearchText(null)}>
       <li className="flex justify-between items-center">
         <div className="flex items-center gap-5">
           <img src={image} className="w-12 h-12 rounded" alt="product Img" />
