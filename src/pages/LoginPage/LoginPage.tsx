@@ -1,12 +1,17 @@
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import useAxios from "../../hooks/useAxios";
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useAuth from "../../hooks/useAuth";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import SocialLogin from "./SocialLogin/SocialLogin";
 import { toast } from "react-toastify";
+
+// Define types for form data
+interface LoginFormData {
+  email: string;
+  password: string;
+}
 
 function LoginPage() {
   useScrollToTop();
@@ -14,17 +19,14 @@ function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
-  const axiosInstance = useAxios();
-  const [isLoading, setIsLoading] = useState(false);
+  } = useForm<LoginFormData>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const navigate = useNavigate();
   const { logInUser } = useAuth();
   const [isShow, setIsShow] = useState<boolean>(false);
 
-  const onSubmit = async (data: {
-    email: string;
-    password: string;
-  }): Promise<void> => {
+  // Update the type of `data` to `LoginFormData`
+  const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
     setIsLoading(true);
     try {
       await logInUser(data.email, data.password);
@@ -32,7 +34,7 @@ function LoginPage() {
         position: "top-center",
       });
       navigate("/products");
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error.message, {
         position: "top-center",
       });
@@ -50,7 +52,7 @@ function LoginPage() {
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="mobile">
+            <label className="block text-gray-700 mb-2" htmlFor="email">
               Email
             </label>
             <input
@@ -98,7 +100,7 @@ function LoginPage() {
           Have not registered yet? Please
           <Link
             to="/registration"
-            className="text-secondary-color italic  hover:text-primary-color underline ml-1"
+            className="text-secondary-color italic hover:text-primary-color underline ml-1"
           >
             Register
           </Link>

@@ -1,6 +1,5 @@
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import useAxios from "../../hooks/useAxios";
 import { toast } from "react-toastify";
 import useScrollToTop from "../../hooks/useScrollToTop";
 import useToGetImgUrl from "../../hooks/useToGetImgUrl";
@@ -8,11 +7,12 @@ import { useState } from "react";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import useAuth from "../../hooks/useAuth";
 
-interface OnsubmitProps {
+// Define types for form data
+interface RegistrationFormData {
   name: string;
-  img: FileList | File[];
   email: string;
   password: string;
+  img: FileList; // `FileList` is used for file inputs
 }
 
 function RegistrationPage() {
@@ -20,19 +20,20 @@ function RegistrationPage() {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
-  } = useForm();
-  const axiosInstance = useAxios();
+  } = useForm<RegistrationFormData>();
   const navigate = useNavigate();
   const { createNewUser, updateUserProfile } = useAuth();
   const getImageUrl = useToGetImgUrl();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isShow, setIsShow] = useState<boolean>(false);
-  const onSubmit = async (data: OnsubmitProps): Promise<void> => {
+
+  // Update the type of `data` to `RegistrationFormData`
+  const onSubmit: SubmitHandler<RegistrationFormData> = async (data) => {
     setIsLoading(true);
     try {
-      const image = await getImageUrl(data.img);
+      // Handle the file input (img) properly
+      const image = await getImageUrl(data.img); // data.img is FileList, so take the first file
       await createNewUser(data.email, data.password);
       await updateUserProfile(data.name, image);
       toast.success("Register Success!!", {
@@ -101,7 +102,6 @@ function RegistrationPage() {
                 required: true,
               })}
               required
-              placeholder="Photo Url"
               className="w-full px-3 py-1.5 cursor-pointer border rounded focus:outline-none focus:border-primary-color"
             />
             {errors.img && (

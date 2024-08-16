@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useAxios from "../../../../hooks/useAxios";
-import { Link } from "react-router-dom";
 import SearchForm from "./SearchForm/SearchForm";
 import ProductRow from "./ProductRow/ProductRow";
 
@@ -19,7 +18,7 @@ const SearchProduct: React.FC = () => {
     try {
       if (searchValue) {
         const res = await axiosInstance.get(`/products?search=${searchValue}`);
-        return setProducts(res.data);
+        return setProducts(res?.data?.slice(0,8));
       }
       setProducts([]);
     } catch (error) {
@@ -53,7 +52,7 @@ const SearchProduct: React.FC = () => {
 
       {/* for search result */}
       {products?.length > 0 && searchText && (
-        <ul className="space-y-2 bg-base-100 p-5 rounded absolute w-full top-[110%] shadow">
+        <ul className="space-y-1 bg-base-100 p-5 rounded absolute w-full top-[110%] shadow">
           {products.map((product) => (
             <ProductRow product={product} />
           ))}

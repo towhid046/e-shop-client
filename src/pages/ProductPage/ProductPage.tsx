@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import useScrollToTop from "../../hooks/useScrollToTop";
-import SectionHeading from "./../../components/shared/SectionHeading/SectionHeading";
-import Product from "../../components/unique/Product/Product";
+import SectionHeading from "../../components/shared/SectionHeading/SectionHeading";
+import Product, { ProductProps } from "../../components/unique/Product/Product";
 import LoadingSpinner from "../../components/shared/LoadingSpinner/LoadingSpinner";
 import useAxios from "../../hooks/useAxios";
 import PaginationComponent from "./PaginationComponent/PaginationComponent";
 import FilterComponent from "./FilterComponent/FilterComponent";
 import SortingComponent from "./SortingComponent/SortingComponent";
 
+interface ProductCountResponse {
+  productCount: number;
+}
+
 const ProductsPage: React.FC = () => {
   useScrollToTop();
   const axiosInstance = useAxios();
-  const [products, setProducts] = useState<object[]>([]);
+  const [products, setProducts] = useState<ProductProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const [totalProducts, setTotalProducts] = useState<number>(0);
@@ -31,7 +35,7 @@ const ProductsPage: React.FC = () => {
       const minPrice = priceRange ? Number(priceRange.split("-")[0]) : "";
       const maxPrice = priceRange ? Number(priceRange.split("-")[1]) : "";
       try {
-        const res = await axiosInstance.get(
+        const res = await axiosInstance.get<ProductProps[]>(
           `/products?currentPage=${currentPage}&perPageView=${perPageView}&brand=${brand}&category=${category}&minPrice=${minPrice}&maxPrice=${maxPrice}&sortOrderPrice=${sortOrderPrice}&sortOrderDate=${sortOrderDate}`
         );
         setProducts(res.data);
@@ -51,7 +55,9 @@ const ProductsPage: React.FC = () => {
   useEffect(() => {
     const loadProductCount = async () => {
       try {
-        const { data } = await axiosInstance.get("/products-count");
+        const { data } = await axiosInstance.get<ProductCountResponse>(
+          "/products-count"
+        );
         setTotalProducts(data.productCount);
       } catch (error) {
         console.error(error);
@@ -66,6 +72,7 @@ const ProductsPage: React.FC = () => {
       setIsLoading(true);
     }
   };
+
   const nextButtonHandler = (): void => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -96,18 +103,18 @@ const ProductsPage: React.FC = () => {
           />
         </div>
       </div>
-      {!products?.length && (
+
+      {!products.length ? (
         <div className="text-2xl font-semibold text-gray-400 min-h-[60vh] flex justify-center items-center">
           Products Not Found
         </div>
-      )}
-
-      <div className="grid xl:grid-cols-4 px-4 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {products?.length &&
-          products?.map((product) => (
+      ) : (
+        <div className="grid xl:grid-cols-4 px-4 gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {products.map((product) => (
             <Product key={product._id} product={product} />
           ))}
-      </div>
+        </div>
+      )}
 
       <div className={`${(brand || category || priceRange) && "hidden"}`}>
         <PaginationComponent

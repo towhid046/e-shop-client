@@ -3,10 +3,11 @@ export interface ProductProps {
   name: string;
   description: string;
   image: string;
-  categories: string;
   price: number;
   ratings: number;
   created_at: string;
+  category: string;
+  brand: string;
 }
 
 import { Link, useNavigate } from "react-router-dom";
@@ -15,7 +16,7 @@ import Button from "../../shared/Button/Button";
 import useAuth from "./../../../hooks/useAuth";
 import swal from "sweetalert";
 
-const Product = ({ product }: ProductProps) => {
+const Product = ({ product }) => {
   const { user, handleAddToCart, productIds, setIsToggle } = useAuth();
   const navigate = useNavigate();
 
@@ -38,7 +39,10 @@ const Product = ({ product }: ProductProps) => {
         title: "Login first!",
         text: "To add product in the cart you should login first",
         icon: "info",
-        buttons: true,
+        buttons: {
+          cancel: "Cancel",
+          confirm: "Login",
+        },
       }).then((login) => {
         if (login) {
           return navigate("/login");

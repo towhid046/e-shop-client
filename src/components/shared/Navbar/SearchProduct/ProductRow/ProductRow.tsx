@@ -8,7 +8,7 @@ const ProductRow = ({ product, setSearchText }: ProductRowProps) => {
   const { name, _id, image, price } = product;
 
   return (
-    <Link to={`/product-details/${_id}`} onClick={() => setSearchText(null)}>
+    <Link to={`/product-details/${_id}`} className="inline-block" onClick={() => setSearchText(null)}>
       <li className="flex justify-between items-center">
         <div className="flex items-center gap-5">
           <img src={image} className="w-12 h-12 rounded" alt="product Img" />
