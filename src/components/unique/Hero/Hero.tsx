@@ -12,14 +12,13 @@ const Hero: React.FC = () => {
             <span className="bg-gradient-to-r from-primary-color  to-gray-300 inline-block text-transparent bg-clip-text">
               {" "}
               E-Shop!
-            </span>
-            <br />
-            <span className="font-medium">Choose your device</span>
+            </span> 
           </h2>
+            <span className="font-medium text-2xl text-gray-400">Choose your devices</span>
           <p className="text-gray-600 my-7">
-            This is a dummy text replace this text with some meaning full text.
-            This is a dummy text repeated and replace this text with some
-            meaning full text{" "}
+            This is a electronics shopping application in this application you
+            can find amazing electronics products such as Mobile Phone, Laptop,
+            Camera, PC and so on...{" "}
           </p>
           <Link to="/products">
             <Button>Products</Button>
@@ -28,7 +27,11 @@ const Hero: React.FC = () => {
       </div>
       <div className="flex-1">
         <figure className="flex md:flex-row-reverse">
-          <img src={heroImg} className="min-w-full rounded-full" alt="Hero banner image" />
+          <img
+            src={heroImg}
+            className="min-w-full rounded-full"
+            alt="Hero banner image"
+          />
         </figure>
       </div>
     </section>

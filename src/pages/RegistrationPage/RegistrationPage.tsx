@@ -38,7 +38,7 @@ function RegistrationPage() {
       toast.success("Register Success!!", {
         position: "top-center",
       });
-      navigate("/");
+      navigate("/products");
     } catch (error) {
       console.error(error);
     } finally {

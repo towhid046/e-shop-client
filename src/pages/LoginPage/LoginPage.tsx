@@ -31,7 +31,7 @@ function LoginPage() {
       toast.success("Login Success!!", {
         position: "top-center",
       });
-      navigate("/");
+      navigate("/products");
     } catch (error) {
       toast.error(error.message, {
         position: "top-center",
