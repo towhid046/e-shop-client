@@ -3,9 +3,17 @@
 
 ### How to run this project locally?
 
-Firstly, clone this repo. Then you need to create a ".env" or ".env.local" file in the root and also create a new project on Firebase and an Imagebb account.
+- First, clone the repo:
+```js
+git clone https://github.com/towhid046/e-shop-client.git
+```
+- Second, run the following command to install all the dependencies:
+```js
+npm install
+```
+- Finally, you need to create a ".env" or ".env.local" file in the root and also create a new project on Firebase and an Imagebb account.
 
-- ".env" or ".env.local" file includes the flowing key with firebase and imagebb (API key) values
+The ".env" or ".env.local" file includes the flowing key with firebase and imagebb (API key) values
 
 ```js
 VITE_APIKEY=<your_value>
