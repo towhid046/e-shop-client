@@ -38,7 +38,7 @@ const Checkout = () => {
           onClick={() => setIsToggle(false)}
           className="cursor-pointer md:min-h-screen bg-black bg-opacity-80 xl:col-span-3 lg:col-span-2 md:col-span-1"
         ></div>
-        <ul className="space-y-3 min-h-screen bg-base-100 p-5 col-span-1">
+        <ul className="min-h-screen bg-base-100 p-5 col-span-1 ">
           <div className="flex justify-between items-center mb-7">
             <h2 className="text-2xl font-semibold text-gray-600">Cart</h2>
             <button onClick={() => setIsToggle(false)}>
@@ -52,30 +52,38 @@ const Checkout = () => {
             </div>
           )}
 
-          {cartProducts &&
-            cartProducts?.map((item) => (
-              <li key={item._id} className="flex justify-between items-center">
-                <div className="flex items-center gap-2">
-                  <figure>
-                    <img src={item?.image} className="w-16" alt="Image" />
-                  </figure>
-                  <div>
-                    <p className="text-lg text-gray-600">{item?.name}</p>
-                    <p className="text-gray-500">${item?.price}</p>
+          <div className="space-y-3">
+            {cartProducts &&
+              cartProducts?.map((item) => (
+                <li
+                  key={item._id}
+                  className="flex justify-between items-center"
+                >
+                  <div className="flex items-center gap-2">
+                    <figure>
+                      <img
+                        src={item?.image}
+                        className="w-12 h-10 object-cover "
+                        alt="Image"
+                      />
+                    </figure>
+                    <div>
+                      <p className="text-md text-gray-600">{item?.name}</p>
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-center gap-2">
-                  <strong>${item?.price}</strong>
-                  <button
-                    onClick={() => removeIdFromCart(item?._id)}
-                    className="btn btn-sm btn-outline"
-                  >
-                    <FaTimes />
-                  </button>
-                </div>
-              </li>
-            ))}
+                  <div className="flex items-center gap-2">
+                    <strong>${item?.price}</strong>
+                    <button
+                      onClick={() => removeIdFromCart(item?._id)}
+                      className="btn btn-sm btn-outline"
+                    >
+                      <FaTimes />
+                    </button>
+                  </div>
+                </li>
+              ))}
+          </div>
           {!cartProducts.length && (
             <p className="text-center text-xl font-semibold italic flex justify-center items-center min-h-[80vh]">
               No product Added Yet!

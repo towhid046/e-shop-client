@@ -88,7 +88,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const handleRemoveProduct = (id: string) => {
     if (!user) return;
-    const filteredIds = productIds.filter((i) => i !== id);
+    const filteredIds = productIds.length ? productIds.filter((i) => i !== id) : []
     setProductIds(filteredIds);
     localStorage.setItem("productsId", JSON.stringify(filteredIds));
   };
