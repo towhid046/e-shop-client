@@ -1,14 +1,44 @@
 import { IoCartOutline } from "react-icons/io5";
 import { IoAddCircleOutline, IoRemoveCircleOutline } from "react-icons/io5";
 import Button from "./../../components/shared/Button/Button";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import SectionHeading from "./../../components/shared/SectionHeading/SectionHeading";
 import useScrollToTop from "../../hooks/useScrollToTop";
+import useAuth from "../../hooks/useAuth";
+import swal from "sweetalert";
 const productImage = `https://images.pexels.com/photos/208512/pexels-photo-208512.jpeg?auto=compress&cs=tinysrgb&w=600`;
 
 const ProductDetailsPage: React.FC = () => {
   useScrollToTop();
-  const { name, description, categories, price,category, created_at, brand } = useLoaderData();
+  const { handleAddToCart, productIds, setIsToggle, user } = useAuth();
+  const navigate = useNavigate();
+  const {
+    name,
+    description,
+    categories,
+    price,
+    category,
+    created_at,
+    brand,
+    _id,
+  } = useLoaderData();
+
+  const handleAddToCartButton = (id: string): void => {
+    if (!user) {
+      swal({
+        title: "Login first!",
+        text: "To add product in the cart you should login first",
+        icon: "info",
+        buttons: true,
+      }).then((login) => {
+        if (login) {
+          return navigate("/login");
+        }
+      });
+    } else {
+      handleAddToCart(id);
+    }
+  };
 
   return (
     <div className="px-4 mb-12">
@@ -53,9 +83,21 @@ const ProductDetailsPage: React.FC = () => {
             </div>
 
             {/* Add to Cart Button */}
-            <Button customClass="w-full flex items-center gap-3 justify-center mt-4">
-              Add to Cart <IoCartOutline className="text-lg" />
-            </Button>
+            {productIds.includes(_id) && user ? (
+              <button
+                onClick={() => setIsToggle(true)}
+                className="w-full flex px-4 py-2 bg-gray-800 hover:bg-gray-700 transition duration-300 text-white rounded items-center gap-3 justify-center"
+              >
+                View Cart <IoCartOutline className="text-lg" />{" "}
+              </button>
+            ) : (
+              <Button
+                clickHandler={() => handleAddToCartButton(_id)}
+                customClass="w-full flex items-center gap-3 justify-center"
+              >
+                Add to Cart <IoCartOutline className="text-lg" />{" "}
+              </Button>
+            )}
           </div>
         </div>
       </div>

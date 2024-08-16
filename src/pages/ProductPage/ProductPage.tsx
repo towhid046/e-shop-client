@@ -63,11 +63,13 @@ const ProductsPage: React.FC = () => {
   const prevButtonHandler = (): void => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
+      setIsLoading(true);
     }
   };
   const nextButtonHandler = (): void => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
+      setIsLoading(true);
     }
   };
 

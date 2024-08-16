@@ -6,7 +6,7 @@ const useCart = () => {
     const ids = localStorage.getItem("productsId")
       ? JSON.parse(localStorage.getItem("productsId"))
       : [];
-      setCarts(ids);
+    setCarts(ids);
   }, []);
   return { carts };
 };

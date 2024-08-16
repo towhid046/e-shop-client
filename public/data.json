@@ -1,0 +1,512 @@
+[
+  {
+    "name": "Apple iPhone 15 Pro",
+    "image": "https://images.pexels.com/photos/3756879/pexels-photo-3756879.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Apple iPhone 15 Pro delivers exceptional performance with the new A17 Bionic chip, an impressive camera system, and enhanced battery life. Its sleek design and powerful features make it a premium choice for mobile enthusiasts.",
+    "price": 1299.99,
+    "category": "Mobile",
+    "brand": "Apple",
+    "ratings": 4.9,
+    "created_at": "2024-08-16T10:10:00Z"
+  },
+  {
+    "name": "Xiaomi Pad 5",
+    "image": "https://images.pexels.com/photos/2237797/pexels-photo-2237797.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "description": "The Xiaomi Pad 5 features a 120Hz display, Snapdragon 860 processor, and a large battery for extended use. It’s an excellent choice for entertainment, gaming, and productivity on the go, offering great value for its price.",
+    "price": 399.99,
+    "category": "Tablet",
+    "brand": "Xiaomi",
+    "ratings": 4.5,
+    "created_at": "2024-08-16T12:30:00Z"
+  },
+  {
+    "name": "Amazon Fire HD 10",
+    "image": "https://images.pexels.com/photos/1334597/pexels-photo-1334597.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Amazon Fire HD 10 is a budget-friendly tablet with a 10.1-inch 1080p full HD display, a powerful octa-core processor, and up to 12 hours of battery life. It’s perfect for streaming, browsing, and Alexa integration.",
+    "price": 149.99,
+    "category": "Tablet",
+    "brand": "Amazon",
+    "ratings": 4.3,
+    "created_at": "2024-08-16T13:00:00Z"
+  },
+  {
+    "name": "Google Pixel Slate",
+    "image": "https://images.pexels.com/photos/221185/pexels-photo-221185.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Google Pixel Slate is a versatile tablet with a 12.3-inch Molecular Display, Intel Core m3 processor, and Chrome OS. It’s perfect for productivity and entertainment, with access to the full Google ecosystem.",
+    "price": 799.99,
+    "category": "Tablet",
+    "brand": "Google",
+    "ratings": 4.4,
+    "created_at": "2024-08-16T13:30:00Z"
+  },
+  {
+    "name": "Google Pixel 8",
+    "image": "https://images.pexels.com/photos/1290515/pexels-photo-1290515.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Google Pixel 8 is equipped with a powerful AI-driven processor, offering superior camera quality, seamless integration with Google services, and a pure Android experience. It's designed for those who value simplicity and efficiency.",
+    "price": 999.99,
+    "category": "Mobile",
+    "brand": "Google",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T10:20:00Z"
+  },
+  {
+    "name": "LG G Pad 5 10.1",
+    "image": "https://images.pexels.com/photos/1334598/pexels-photo-1334598.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The LG G Pad 5 10.1 features a 10.1-inch display, Snapdragon 821 processor, and a large battery for all-day use. It’s a reliable and affordable tablet for everyday tasks, streaming, and browsing.",
+    "price": 299.99,
+    "category": "Tablet",
+    "brand": "LG",
+    "ratings": 4.4,
+    "created_at": "2024-08-16T14:30:00Z"
+  },
+  {
+    "name": "Acer Chromebook Tab 10",
+    "image": "https://images.pexels.com/photos/187041/pexels-photo-187041.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Acer Chromebook Tab 10 is the first Chrome OS tablet, offering a 9.7-inch QXGA display, OP1 processor, and stylus support. It’s perfect for education and light productivity, with access to the Google Play Store.",
+    "price": 329.99,
+    "category": "Tablet",
+    "brand": "Acer",
+    "ratings": 4.2,
+    "created_at": "2024-08-16T15:00:00Z"
+  },
+  {
+    "name": "Huawei P60 Pro",
+    "image": "https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Huawei P60 Pro is known for its advanced camera technology, long-lasting battery, and sleek design. It’s designed to deliver a high-end smartphone experience with a focus on photography and style.",
+    "price": 999.99,
+    "category": "Mobile",
+    "brand": "Huawei",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T11:00:00Z"
+  },
+  {
+    "name": "Samsung Galaxy Tab S8",
+    "image": "https://images.pexels.com/photos/3082341/pexels-photo-3082341.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "description": "The Samsung Galaxy Tab S8 offers a premium tablet experience with a 120Hz AMOLED display, powerful Snapdragon processor, and S Pen included. It’s perfect for both entertainment and productivity with its sleek design and long-lasting battery.",
+    "price": 749.99,
+    "category": "Tablet",
+    "brand": "Samsung",
+    "ratings": 4.8,
+    "created_at": "2024-08-16T10:00:00Z"
+  },
+  {
+    "name": "OnePlus 12 Pro",
+    "image": "https://images.pexels.com/photos/89955/pexels-photo-89955.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The OnePlus 12 Pro offers a fluid user experience with its high refresh rate display, fast charging technology, and a versatile camera setup. It’s designed for those who seek top-tier performance in a stylish package.",
+    "price": 1099.99,
+    "category": "Mobile",
+    "brand": "OnePlus",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T10:30:00Z"
+  },
+  {
+    "name": "Sony Xperia 5 IV",
+    "image": "https://images.pexels.com/photos/1042143/pexels-photo-1042143.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Sony Xperia 5 IV is a compact flagship phone that packs powerful features, including a stunning OLED display, professional-grade camera capabilities, and immersive audio. It’s perfect for creative professionals on the go.",
+    "price": 899.99,
+    "category": "Mobile",
+    "brand": "Sony",
+    "ratings": 4.5,
+    "created_at": "2024-08-16T10:40:00Z"
+  },
+  {
+    "name": "Canon EOS 5D Mark IV",
+    "image": "https://images.pexels.com/photos/908430/pexels-photo-908430.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Canon EOS 5D Mark IV is a professional-grade DSLR camera that offers exceptional image quality, a 30.4 MP full-frame sensor, and 4K video recording. It's perfect for both photographers and videographers seeking high performance.",
+    "price": 2499.99,
+    "category": "Camera",
+    "brand": "Canon",
+    "ratings": 4.8,
+    "created_at": "2024-08-16T15:30:00Z"
+  },
+  {
+    "name": "Sony Alpha a7 III",
+    "image": "https://images.pexels.com/photos/1205022/pexels-photo-1205022.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Sony Alpha a7 III is a mirrorless camera that offers a 24.2 MP full-frame sensor, 4K video recording, and advanced autofocus. It's ideal for both professional and amateur photographers looking for versatility and performance.",
+    "price": 1999.99,
+    "category": "Camera",
+    "brand": "Sony",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T16:30:00Z"
+  },
+  {
+    "name": "Nikon D850",
+    "image": "https://images.pexels.com/photos/1500590/pexels-photo-1500590.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Nikon D850 is a high-resolution DSLR with a 45.7 MP sensor, 4K UHD video, and impressive dynamic range. It's an excellent choice for professionals who demand the highest quality in both stills and video.",
+    "price": 2999.99,
+    "category": "Camera",
+    "brand": "Nikon",
+    "ratings": 4.9,
+    "created_at": "2024-08-16T16:00:00Z"
+  },
+  {
+    "name": "Xiaomi Mi 14",
+    "image": "https://images.pexels.com/photos/1786433/pexels-photo-1786433.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Xiaomi Mi 14 offers cutting-edge technology at an affordable price, featuring a high-resolution display, fast charging, and a powerful camera system. It’s a great option for users looking for value without compromising on quality.",
+    "price": 799.99,
+    "category": "Mobile",
+    "brand": "Xiaomi",
+    "ratings": 4.4,
+    "created_at": "2024-08-16T10:50:00Z"
+  },
+  {
+    "name": "Huawei MatePad Pro",
+    "image": "https://images.pexels.com/photos/7698888/pexels-photo-7698888.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "description": "The Huawei MatePad Pro is a sleek and powerful tablet with a stunning 10.8-inch display, Kirin 990 chipset, and support for M-Pencil. It’s designed for creativity and productivity, offering an immersive multimedia experience.",
+    "price": 649.99,
+    "category": "Tablet",
+    "brand": "Huawei",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T12:00:00Z"
+  },
+  {
+    "name": "Asus ZenPad 3S 10",
+    "image": "https://images.pexels.com/photos/1081204/pexels-photo-1081204.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Asus ZenPad 3S 10 offers a premium design with a 2K display, 4GB of RAM, and a powerful MediaTek processor. It’s ideal for users who want a high-quality tablet for multimedia and productivity.",
+    "price": 349.99,
+    "category": "Tablet",
+    "brand": "Asus",
+    "ratings": 4.5,
+    "created_at": "2024-08-16T14:00:00Z"
+  },
+  {
+    "name": "Apple iPad Air",
+    "image": "https://images.pexels.com/photos/10020092/pexels-photo-10020092.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "description": "The Apple iPad Air features a stunning Liquid Retina display, A14 Bionic chip, and support for the Magic Keyboard and Apple Pencil. It’s ideal for those who need power and portability, offering a versatile tablet experience.",
+    "price": 599.99,
+    "category": "Tablet",
+    "brand": "Apple",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T10:30:00Z"
+  },
+  {
+    "name": "Dell XPS 13",
+    "image": "https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Dell XPS 13 is an ultra-thin and lightweight laptop with a 13.3-inch InfinityEdge display, Intel Core i7 processor, 16GB RAM, and 512GB SSD. It's perfect for professionals and students who need portability without sacrificing performance.",
+    "price": 1499.99,
+    "category": "Laptop",
+    "brand": "Dell",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T21:30:00Z"
+  },
+  {
+    "name": "HP Spectre x360",
+    "image": "https://images.pexels.com/photos/461064/pexels-photo-461064.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The HP Spectre x360 is a versatile 2-in-1 laptop with a 13.3-inch 4K UHD touchscreen, Intel Core i7 processor, 16GB RAM, and 1TB SSD. It's ideal for creative professionals and anyone who needs a laptop that can double as a tablet.",
+    "price": 1699.99,
+    "category": "Laptop",
+    "brand": "HP",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T22:00:00Z"
+  },
+  {
+    "name": "Asus ROG Zephyrus G14",
+    "image": "https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Asus ROG Zephyrus G14 is a powerful gaming laptop with a 14-inch Full HD display, AMD Ryzen 9 processor, NVIDIA GeForce RTX 3060, 16GB RAM, and 1TB SSD. It's perfect for gamers who want a compact yet powerful machine.",
+    "price": 1899.99,
+    "category": "Laptop",
+    "brand": "Asus",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T22:30:00Z"
+  },
+  {
+    "name": "Lenovo Tab P11 Pro",
+    "image": "https://images.pexels.com/photos/6849082/pexels-photo-6849082.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "description": "The Lenovo Tab P11 Pro is a powerful tablet with an OLED display, Dolby Vision support, and four JBL speakers. It’s perfect for watching movies, playing games, and getting work done with its long battery life and responsive performance.",
+    "price": 499.99,
+    "category": "Tablet",
+    "brand": "Lenovo",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T11:00:00Z"
+  },
+  {
+    "name": "HP Omen 45L",
+    "image": "https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The HP Omen 45L is a powerful gaming desktop featuring Intel Core i9 processor and NVIDIA RTX 3080 Ti. It’s designed for gamers who want top-tier performance and stunning visuals.",
+    "price": 3299.99,
+    "category": "PC",
+    "brand": "HP",
+    "ratings": 4.7,
+    "created_at": "2024-08-06T18:00:00Z"
+  },
+  {
+    "name": "NZXT H510 Elite",
+    "image": "https://images.pexels.com/photos/1714341/pexels-photo-1714341.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "NZXT H510 Elite is a stylish and powerful gaming PC. With an Intel Core i7 processor, 16GB RAM, and NVIDIA RTX 2060, it offers great performance in a sleek design.",
+    "price": 1799.99,
+    "category": "PC",
+    "brand": "NZXT",
+    "ratings": 4.6,
+    "created_at": "2024-08-03T10:00:00Z"
+  },
+  {
+    "name": "Microsoft Surface Pro 9",
+    "image": "https://images.pexels.com/photos/3785868/pexels-photo-3785868.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+    "description": "The Microsoft Surface Pro 9 combines the portability of a tablet with the power of a laptop. It features a high-resolution PixelSense display, powerful Intel Core processor, and the versatility of Windows 11, making it a perfect companion for work and play.",
+    "price": 1099.99,
+    "category": "Tablet",
+    "brand": "Microsoft",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T11:30:00Z"
+  },
+  {
+    "name": "Samsung Galaxy S24",
+    "image": "https://images.pexels.com/photos/63690/pexels-photo-63690.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Samsung Galaxy S24 features a stunning display, powerful performance with the latest processor, and an advanced camera system for capturing high-quality photos and videos. It's designed to keep you connected and productive on the go.",
+    "price": 1199.99,
+    "category": "Mobile",
+    "brand": "Samsung",
+    "ratings": 4.8,
+    "created_at": "2024-08-16T10:00:00Z"
+  },
+  {
+    "name": "Fujifilm X-T4",
+    "image": "https://images.pexels.com/photos/212372/pexels-photo-212372.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Fujifilm X-T4 is a versatile mirrorless camera that features a 26.1 MP APS-C sensor, in-body image stabilization, and 4K video. It's perfect for photographers who need a reliable and high-quality camera for both stills and video.",
+    "price": 1699.99,
+    "category": "Camera",
+    "brand": "Fujifilm",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T17:00:00Z"
+  },
+  {
+    "name": "Panasonic Lumix GH5",
+    "image": "https://images.pexels.com/photos/225157/pexels-photo-225157.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Panasonic Lumix GH5 is a mirrorless camera that excels in video recording, with 4K 60p/50p video, a 20.3 MP sensor, and 5-axis in-body stabilization. It's the ideal choice for videographers and hybrid shooters.",
+    "price": 1499.99,
+    "category": "Camera",
+    "brand": "Panasonic",
+    "ratings": 4.5,
+    "created_at": "2024-08-16T17:30:00Z"
+  },
+  {
+    "name": "Olympus OM-D E-M1 Mark III",
+    "image": "https://images.pexels.com/photos/593324/pexels-photo-593324.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Olympus OM-D E-M1 Mark III is a compact and lightweight mirrorless camera with a 20.4 MP sensor, 5-axis stabilization, and high-speed autofocus. It's perfect for travel and wildlife photography.",
+    "price": 1799.99,
+    "category": "Camera",
+    "brand": "Olympus",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T18:00:00Z"
+  },
+  {
+    "name": "Canon EOS R5",
+    "image": "https://images.pexels.com/photos/1203803/pexels-photo-1203803.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Canon EOS R5 is a powerful mirrorless camera with a 45 MP full-frame sensor, 8K video recording, and advanced autofocus. It's ideal for professional photographers and videographers looking for cutting-edge performance.",
+    "price": 3899.99,
+    "category": "Camera",
+    "brand": "Canon",
+    "ratings": 4.9,
+    "created_at": "2024-08-16T18:30:00Z"
+  },
+  {
+    "name": "Leica Q2",
+    "image": "https://images.pexels.com/photos/66134/pexels-photo-66134.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Leica Q2 is a premium compact camera with a 47.3 MP full-frame sensor, fixed 28mm f/1.7 lens, and 4K video recording. It's perfect for those who appreciate craftsmanship and high image quality in a portable form factor.",
+    "price": 4999.99,
+    "category": "Camera",
+    "brand": "Leica",
+    "ratings": 4.8,
+    "created_at": "2024-08-16T19:00:00Z"
+  },
+  {
+    "name": "GoPro HERO10 Black",
+    "image": "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The GoPro HERO10 Black is a versatile action camera with 5.3K video recording, HyperSmooth 4.0 stabilization, and waterproof design. It's ideal for capturing adventures and sports in stunning detail.",
+    "price": 499.99,
+    "category": "Camera",
+    "brand": "GoPro",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T19:30:00Z"
+  },
+  {
+    "name": "Sony Cyber-shot RX100 VII",
+    "image": "https://images.pexels.com/photos/243757/pexels-photo-243757.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Sony Cyber-shot RX100 VII is a premium compact camera with a 1.0-type sensor, 24-200mm zoom lens, and 4K video recording. It's perfect for those who want a powerful and portable camera for travel and everyday photography.",
+    "price": 1299.99,
+    "category": "Camera",
+    "brand": "Sony",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T20:00:00Z"
+  },
+  {
+    "name": "Apple MacBook Pro 16-inch",
+    "image": "https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Apple MacBook Pro 16-inch is a powerful laptop with a Retina display, Intel Core i9 processor, 16GB RAM, and a 1TB SSD. It's designed for professionals who need high performance and reliability for demanding tasks.",
+    "price": 2799.99,
+    "category": "Laptop",
+    "brand": "Apple",
+    "ratings": 4.8,
+    "created_at": "2024-08-16T21:00:00Z"
+  },
+  {
+    "name": "Microsoft Surface Laptop 4",
+    "image": "https://images.pexels.com/photos/296115/pexels-photo-296115.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Microsoft Surface Laptop 4 is a sleek and stylish laptop with a 13.5-inch PixelSense display, Intel Core i5 processor, 8GB RAM, and 512GB SSD. It's designed for professionals and students who need a reliable laptop for everyday use.",
+    "price": 1299.99,
+    "category": "Laptop",
+    "brand": "Microsoft",
+    "ratings": 4.6,
+    "created_at": "2024-08-16T23:00:00Z"
+  },
+  {
+    "name": "Corsair Vengeance i7200",
+    "image": "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Corsair Vengeance i7200 is a powerhouse gaming PC with Intel Core i9, 32GB RAM, and NVIDIA RTX 3080. It delivers exceptional performance for both gaming and creative work.",
+    "price": 2999.99,
+    "category": "PC",
+    "brand": "Corsair",
+    "ratings": 4.8,
+    "created_at": "2024-08-04T14:30:00Z"
+  },
+  {
+    "name": "iBUYPOWER Element MR",
+    "image": "https://images.pexels.com/photos/1714341/pexels-photo-1714341.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "iBUYPOWER Element MR is an affordable gaming PC that doesn't compromise on performance. With an AMD Ryzen 5 processor, 16GB RAM, and AMD Radeon RX 580, it’s perfect for budget-conscious gamers.",
+    "price": 999.99,
+    "category": "PC",
+    "brand": "iBUYPOWER",
+    "ratings": 4.5,
+    "created_at": "2024-08-05T13:15:00Z"
+  },
+  {
+    "name": "Razer Blade 15",
+    "image": "https://images.pexels.com/photos/129208/pexels-photo-129208.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Razer Blade 15 is a high-performance gaming laptop with a 15.6-inch Full HD display, Intel Core i7 processor, NVIDIA GeForce RTX 3070, 16GB RAM, and 1TB SSD. It's designed for serious gamers who demand the best performance.",
+    "price": 2399.99,
+    "category": "Laptop",
+    "brand": "Razer",
+    "ratings": 4.7,
+    "created_at": "2024-08-17T01:00:00Z"
+  },
+  {
+    "name": "Acer Swift 3",
+    "image": "https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Acer Swift 3 is a budget-friendly laptop with a 14-inch Full HD display, AMD Ryzen 7 processor, 8GB RAM, and 512GB SSD. It's an excellent choice for students and professionals who need a reliable laptop at an affordable price.",
+    "price": 749.99,
+    "category": "Laptop",
+    "brand": "Acer",
+    "ratings": 4.5,
+    "created_at": "2024-08-17T01:30:00Z"
+  },
+  {
+    "name": "Alienware m15 R6",
+    "image": "https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Alienware m15 R6 is a powerful gaming laptop with a 15.6-inch QHD display, Intel Core i7 processor, NVIDIA GeForce RTX 3080, 32GB RAM, and 1TB SSD. It's designed for gamers who need top-tier performance and cutting-edge features.",
+    "price": 2999.99,
+    "category": "Laptop",
+    "brand": "Alienware",
+    "ratings": 4.8,
+    "created_at": "2024-08-17T02:00:00Z"
+  },
+  {
+    "name": "Asus ROG Strix",
+    "image": "https://images.pexels.com/photos/326501/pexels-photo-326501.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Asus ROG Strix is a powerful gaming PC equipped with an Intel Core i9 processor, 32GB RAM, and NVIDIA RTX 3080. Designed for serious gamers, it offers smooth and immersive gameplay with its high-performance components.",
+    "price": 2999.99,
+    "category": "PC",
+    "brand": "Asus",
+    "ratings": 4.8,
+    "created_at": "2024-08-10T09:30:00Z"
+  },
+  {
+    "name": "MSI Trident X",
+    "image": "https://images.pexels.com/photos/4974914/pexels-photo-4974914.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "MSI Trident X is a compact yet powerful gaming PC. With an Intel Core i7 processor, 16GB RAM, and NVIDIA RTX 3070, it delivers top-tier performance in a small form factor, perfect for gaming and content creation.",
+    "price": 2499.99,
+    "category": "PC",
+    "brand": "MSI",
+    "ratings": 4.7,
+    "created_at": "2024-08-08T15:00:00Z"
+  },
+  {
+    "name": "CyberPowerPC Gamer Xtreme",
+    "image": "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The CyberPowerPC Gamer Xtreme is built for gamers who demand power and speed. It features an Intel Core i5 processor, 16GB RAM, and NVIDIA GTX 1660 Super, providing excellent performance for gaming and multitasking.",
+    "price": 1499.99,
+    "category": "PC",
+    "brand": "CyberPowerPC",
+    "ratings": 4.6,
+    "created_at": "2024-08-07T12:45:00Z"
+  },
+  {
+    "name": "Alienware Aurora R14",
+    "image": "https://images.pexels.com/photos/930530/pexels-photo-930530.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Alienware Aurora R14 is a high-end gaming PC with AMD Ryzen 9 processor and NVIDIA RTX 3090 graphics card. It's designed for gamers who want to experience the best in performance and graphics.",
+    "price": 3499.99,
+    "category": "PC",
+    "brand": "Alienware",
+    "ratings": 4.9,
+    "created_at": "2024-08-09T11:20:00Z"
+  },
+  {
+    "name": "Lenovo ThinkPad X1 Carbon",
+    "image": "https://images.pexels.com/photos/1181248/pexels-photo-1181248.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Lenovo ThinkPad X1 Carbon is a business laptop with a 14-inch Full HD display, Intel Core i7 processor, 16GB RAM, and 1TB SSD. It offers exceptional performance, durability, and security features, making it ideal for professionals on the go.",
+    "price": 1799.99,
+    "category": "Laptop",
+    "brand": "Lenovo",
+    "ratings": 4.8,
+    "created_at": "2024-08-17T00:00:00Z"
+  },
+  {
+    "name": "Acer Swift 3",
+    "image": "https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Acer Swift 3 is a budget-friendly laptop with a 14-inch Full HD display, AMD Ryzen 7 processor, 8GB RAM, and 512GB SSD. It's an excellent choice for students and professionals who need a reliable laptop at an affordable price.",
+    "price": 749.99,
+    "category": "Laptop",
+    "brand": "Acer",
+    "ratings": 4.5,
+    "created_at": "2024-08-17T00:30:00Z"
+  },
+  {
+    "name": "SkyTech Archangel",
+    "image": "https://images.pexels.com/photos/1714341/pexels-photo-1714341.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "SkyTech Archangel is a gaming PC designed for entry-level gamers. With an AMD Ryzen 5 processor and NVIDIA GTX 1660, it offers solid performance at an affordable price.",
+    "price": 1199.99,
+    "category": "PC",
+    "brand": "SkyTech",
+    "ratings": 4.4,
+    "created_at": "2024-08-02T11:00:00Z"
+  },
+  {
+    "name": "Origin Neuron",
+    "image": "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "Origin Neuron is a custom-built gaming PC that offers top-tier performance with Intel Core i9 processor and NVIDIA RTX 3080. Perfect for gamers who want a personalized gaming experience.",
+    "price": 3299.99,
+    "category": "PC",
+    "brand": "Origin",
+    "ratings": 4.9,
+    "created_at": "2024-08-01T09:45:00Z"
+  },
+  {
+    "name": "Oppo Find X6 Pro",
+    "image": "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Oppo Find X6 Pro combines innovative design with powerful performance, featuring a cutting-edge display, advanced camera system, and super-fast charging. It's built for users who demand the best from their mobile devices.",
+    "price": 1099.99,
+    "category": "Mobile",
+    "brand": "Oppo",
+    "ratings": 4.7,
+    "created_at": "2024-08-16T11:10:00Z"
+  },
+  {
+    "name": "Asus ROG Phone 8",
+    "image": "https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Asus ROG Phone 8 is a gaming powerhouse, offering top-tier performance with a high-refresh-rate display, gaming-centric features, and a robust cooling system. It's the ultimate mobile gaming device.",
+    "price": 1299.99,
+    "category": "Mobile",
+    "brand": "Asus",
+    "ratings": 4.8,
+    "created_at": "2024-08-16T11:20:00Z"
+  },
+  {
+    "name": "Realme GT 3 Pro",
+    "image": "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "description": "The Realme GT 3 Pro is a flagship killer, offering premium features such as a high-resolution AMOLED display, fast charging, and a powerful chipset, all at an accessible price point. It’s designed for users who want high performance without breaking the bank.",
+    "price": 899.99,
+    "category": "Mobile",
+    "brand": "Realme",
+    "ratings": 4.5,
+    "created_at": "2024-08-16T11:30:00Z"
+  }
+]

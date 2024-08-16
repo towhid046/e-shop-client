@@ -11,7 +11,7 @@ const SocialLogin = () => {
       toast.success("Login Success!!", {
         position: "top-center",
       });
-      navigate("/");
+      navigate("/products");
     } catch (err) {
       console.error(err);
     }
