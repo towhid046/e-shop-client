@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import useAxios from "../../../../hooks/useAxios";
 import SearchForm from "./SearchForm/SearchForm";
 import ProductRow from "./ProductRow/ProductRow";
+import { ProductProps } from "../../../unique/Product/Product";
 
 const SearchProduct: React.FC = () => {
   const axiosInstance = useAxios();
   const [searchText, setSearchText] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [products, setProducts] = useState<object[]>([]);
+  const [products, setProducts] = useState<ProductProps[]>([]);
   const handleSearchProducts: React.ChangeEventHandler<
     HTMLInputElement
   > = async (e): Promise<void> => {
@@ -18,7 +19,7 @@ const SearchProduct: React.FC = () => {
     try {
       if (searchValue) {
         const res = await axiosInstance.get(`/products?search=${searchValue}`);
-        return setProducts(res?.data?.slice(0,8));
+        return setProducts(res?.data?.slice(0, 8));
       }
       setProducts([]);
     } catch (error) {
@@ -54,7 +55,7 @@ const SearchProduct: React.FC = () => {
       {products?.length > 0 && searchText && (
         <ul className="space-y-1 bg-base-100 p-5 rounded absolute w-full top-[110%] shadow">
           {products.map((product) => (
-            <ProductRow product={product} />
+            <ProductRow product={product} setSearchText={setSearchText} />
           ))}
         </ul>
       )}

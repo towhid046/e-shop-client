@@ -2,9 +2,10 @@ import useAuth from "../../../hooks/useAuth";
 import { FaTimes } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { ProductProps } from "../../unique/Product/Product";
 
 const Checkout = () => {
-  const [cartProducts, setCartProducts] = useState<object[]>([]);
+  const [cartProducts, setCartProducts] = useState<ProductProps[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { setIsToggle, productIds, handleRemoveProduct } = useAuth();
 
