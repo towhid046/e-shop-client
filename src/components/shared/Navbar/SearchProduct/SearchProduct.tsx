@@ -9,6 +9,7 @@ const SearchProduct: React.FC = () => {
   const [searchText, setSearchText] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [products, setProducts] = useState<ProductProps[]>([]);
+  
   const handleSearchProducts: React.ChangeEventHandler<
     HTMLInputElement
   > = async (e): Promise<void> => {
